@@ -1,0 +1,13 @@
+### LAnimes Api ###
+api/node_modules
+api/package-lock.json
+
+### LAnimes App ###
+lanimes/android
+lanimes/ios
+lanimes/web
+lanimes/pubspec.lock
+lanimes/lanimes.iml
+lanimes/.dart_tool
+lanimes/.idea
+lanimes/.packages
