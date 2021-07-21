@@ -8,6 +8,9 @@
   ## Considerações
 
   - O aplicativo está sendo desenvolvido em <strong>Flutter</strong> com dart
+  - Contas criadas pelo aplicativo não estão seguras por criptografia
+  - Este app não valida o email na criação, por isso caso vá testa-lo, recomenda-se utilizar um email fictício como:
+  testedeaplicativo@testeapenas.teste.com
  
   ***
 
