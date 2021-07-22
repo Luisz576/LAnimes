@@ -45,6 +45,23 @@ module.exports = {
         if(!am_id) return res.json({ error_id: invalid_params, error_message: "Nenhum id foi passado" })
         let user = await User.findById(user_id)
         if(!user) return res.json({ error_id: user_not_founded, error_message: "user_id inválido" })
-        //TODO: FINALIZAR
+        //toggle favorite
+        let added = false
+        if(user.favorites.includes(`${am_id}`))
+            user.favorites = user.favorites.filter(favorite => favorite !== `${am_id}`)
+        else{
+            added = true
+            user.favorites = [...user.favorites, `${am_id}`]
+        }
+        await user.save()
+        //sucesso
+        return res.json({
+            sucess: 200,
+            user: {
+                favorites: user.favorites
+            },
+            removed: !added,
+            added,
+        })
     },
 }
