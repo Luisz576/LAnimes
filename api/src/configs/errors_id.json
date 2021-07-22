@@ -1,6 +1,7 @@
 {
     "invalid_params": 101,
-    "user_already_exists": 102,
-    "user_or_password_incorrect": 103,
-    "user_not_founded": 104
+    "access_blocked": 102,
+    "user_already_exists": 103,
+    "user_or_password_incorrect": 104,
+    "user_not_founded": 105
 }

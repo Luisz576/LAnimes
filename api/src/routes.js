@@ -12,7 +12,7 @@ routes.post('/sessions/login', SessionController.login)
 
 //users
 routes.get('/users/:user_id', UserController.userInfo)
-routes.get('/users/:user_id/favorite/:am_id', UserController.toggleFavorite)
+routes.get('/users/:user_id/favorites/:am_id', UserController.toggleFavorite)
 routes.post('/users/:user_id/genres', UserController.changeGenres)
 
 //export
