@@ -21,7 +21,7 @@ module.exports = {
         //Na hora da criação, é bom encriptografar a senha para caso haja um vazamento de dados do banco de dados
         user = await User.create({ username, password })
         return res.json({
-            sucess: 200,
+            success: 200,
             message: "Usuário criado com sucesso",
             user: {
                 username: user.username,
@@ -43,7 +43,7 @@ module.exports = {
                     user.token = _tokenGenerate()
                     await user.save()
                     return res.json({
-                        sucess: 200,
+                        success: 200,
                         user: {
                             user_id: user._id,
                             username: user.username,
@@ -54,7 +54,7 @@ module.exports = {
             if(token)
                 if(user.token === token){
                     return res.json({
-                        sucess: 200,
+                        success: 200,
                         user: {
                             user_id: user._id,
                             username: user.username,

@@ -14,7 +14,7 @@ module.exports = {
         //Info do usuário
         //PS: Não retorne senhas
         return res.json({
-            sucess: 200,
+            success: 200,
             user: {
                 username: user.username,
                 genres: user.genres,
@@ -38,7 +38,7 @@ module.exports = {
         await user.save()
         //sucesso
         return res.json({
-            sucess: 200,
+            success: 200,
         })
     }
     ,
@@ -63,7 +63,7 @@ module.exports = {
         await user.save()
         //sucesso
         return res.json({
-            sucess: 200,
+            success: 200,
             removed: !added,
             added,
         })

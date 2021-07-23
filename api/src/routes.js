@@ -7,8 +7,8 @@ const UserController = require('./controllers/UserController')
 const routes = express.Router()
 
 //sessions
-routes.post('/sessions/register', SessionController.register)
-routes.post('/sessions/login', SessionController.login)
+routes.post('/sessions', SessionController.login)
+routes.post('/sessions/new', SessionController.register)
 
 //users
 routes.get('/users/:user_id', UserController.userInfo)

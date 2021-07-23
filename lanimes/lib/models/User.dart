@@ -20,4 +20,8 @@ class User{
     favorites = map["favorites"];
   }
 
+  String getGenresLikeString(){
+    return this.genres.join(',');
+  }
+
 }

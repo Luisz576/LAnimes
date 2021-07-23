@@ -8,6 +8,7 @@ lanimes/ios
 lanimes/web
 lanimes/pubspec.lock
 lanimes/lanimes.iml
+lanimes/build
 lanimes/.dart_tool
 lanimes/.idea
 lanimes/.packages
