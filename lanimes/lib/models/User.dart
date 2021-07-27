@@ -4,7 +4,12 @@ class User{
   late String token;
   late List<String> genres, favorites;
 
-  User(this.username, this.token, this.genres, this.favorites);
+  User(username, token, genres, favorites){
+    this.username = username != null ? username : '';
+    this.token = token != null ? token : '';
+    this.genres = genres != null ? genres : [];
+    this.favorites = favorites != null ? favorites : [];
+  }
 
   User.fromMap(Map map){
     username = map["user_id"];
@@ -22,6 +27,10 @@ class User{
 
   String getGenresLikeString(){
     return this.genres.join(',');
+  }
+
+  bool isEmpty(){
+    return username == '' || token == '';
   }
 
 }

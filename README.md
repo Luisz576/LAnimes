@@ -16,4 +16,4 @@
 
   ## Api utilizada no desenvolvimento
 
-  ### https://jikan.docs.apiary.io - <strong>Jikan</strog>
+  ### https://api.jikan.moe/v3 - <strong>Jikan</strog>

@@ -10,12 +10,16 @@ class Database{
 
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  Future<void> saveUser(User user) async {
+  Future<bool> saveUser(User user) async {
     SharedPreferences prefs = await _prefs;
-    await prefs.setString(_usernameCamp, user.username);
-    await prefs.setString(_tokenCamp, user.token);
-    await prefs.setStringList(_genresCamp, user.genres);
-    await prefs.setStringList(_favoritesCamp, user.favorites);
+    if(!user.isEmpty()){
+      await prefs.setString(_usernameCamp, user.username);
+      await prefs.setString(_tokenCamp, user.token);
+      await prefs.setStringList(_genresCamp, user.genres);
+      await prefs.setStringList(_favoritesCamp, user.favorites);
+      return true;
+    }
+    return false;
   }
 
   Future<User> getUser() async{
@@ -24,7 +28,7 @@ class Database{
     final token = prefs.getString(_tokenCamp);
     final genres = prefs.getStringList(_genresCamp);
     final favorites = prefs.getStringList(_favoritesCamp);
-    return User(username!, token!, genres!, favorites!);
+    return User(username, token, genres, favorites);
   }
 
 }

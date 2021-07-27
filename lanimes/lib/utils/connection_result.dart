@@ -1,10 +1,13 @@
 enum ConnectionResult {
   SUCCESS,
+  //LAnimesApi ERRORS
   INVALID_PARAMS,
   ACCESS_BLOCKED,
   USER_ALREADY_EXISTS,
   USER_OR_PASSWORD_INCORRECT,
   USER_NOT_FOUNDED,
+  //JikanApi ERRORS
+  BAD_REQUEST,
   //ERROS PRÓPRIOS DO APP
   NO_CONNECTION,
   NONE,
@@ -27,6 +30,8 @@ extension ConnectionResultExtension on ConnectionResult{
         return 200;
       case ConnectionResult.NO_CONNECTION:
         return 301;
+      case ConnectionResult.BAD_REQUEST:
+        return 401;
       default:
         return -1;
     }
@@ -49,6 +54,8 @@ ConnectionResult getConnectionResultById(int value){
         return ConnectionResult.SUCCESS;
       case 301:
         return ConnectionResult.NO_CONNECTION;
+      case 401:
+        return ConnectionResult.BAD_REQUEST;
       default:
         return ConnectionResult.NONE;
     }
