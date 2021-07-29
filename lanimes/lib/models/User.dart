@@ -1,36 +1,26 @@
 class User{
 
-  late String username;
-  late String token;
-  late List<String> genres, favorites;
+  List<String> genres = [], favorites = [];
 
-  User(username, token, genres, favorites){
-    this.username = username != null ? username : '';
-    this.token = token != null ? token : '';
+  User(genres, favorites){
     this.genres = genres != null ? genres : [];
     this.favorites = favorites != null ? favorites : [];
   }
 
   User.fromMap(Map map){
-    username = map["user_id"];
-    token = map["token"];
     genres = map["genres"];
     favorites = map["favorites"];
   }
 
-  User.fromMapAndToken(Map map, _token){
-    username = map["user_id"];
-    token = _token;
-    genres = map["genres"];
-    favorites = map["favorites"];
+  Map toMap(){
+    return {
+      "genres": genres,
+      "favorites": favorites,
+    };
   }
 
   String getGenresLikeString(){
     return this.genres.join(',');
-  }
-
-  bool isEmpty(){
-    return username == '' || token == '';
   }
 
 }

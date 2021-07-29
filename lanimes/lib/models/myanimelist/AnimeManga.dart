@@ -1,5 +1,5 @@
-import 'package:lanimes/utils/jikan/anime_manga_type.dart';
-import 'package:lanimes/utils/jikan/anime_manga_status.dart';
+import 'package:lanimes/utils/myanimelist/anime_manga_type.dart';
+import 'package:lanimes/utils/myanimelist/anime_manga_status.dart';
 
 class AnimeManga{
 

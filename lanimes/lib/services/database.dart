@@ -2,33 +2,25 @@ import 'package:lanimes/models/User.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Database{
+  static const String GENRES_CAMP = "user_genres";
+  static const String FAVORITES_CAMP = "user_favorites";
 
-  final String _usernameCamp = "user_username";
-  final String _tokenCamp = "user_token";
-  final String _genresCamp = "user_genres";
-  final String _favoritesCamp = "user_favorites";
-
-  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-
-  Future<bool> saveUser(User user) async {
-    SharedPreferences prefs = await _prefs;
-    if(!user.isEmpty()){
-      await prefs.setString(_usernameCamp, user.username);
-      await prefs.setString(_tokenCamp, user.token);
-      await prefs.setStringList(_genresCamp, user.genres);
-      await prefs.setStringList(_favoritesCamp, user.favorites);
+  static Future<bool> saveUser(User user) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    try{
+      await prefs.setStringList(GENRES_CAMP, user.genres);
+      await prefs.setStringList(FAVORITES_CAMP, user.favorites);
       return true;
+    }catch(e){
+      return false;
     }
-    return false;
   }
 
-  Future<User> getUser() async{
-    SharedPreferences prefs = await _prefs;
-    final username = prefs.getString(_usernameCamp);
-    final token = prefs.getString(_tokenCamp);
-    final genres = prefs.getStringList(_genresCamp);
-    final favorites = prefs.getStringList(_favoritesCamp);
-    return User(username, token, genres, favorites);
+  static Future<User> getUser() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final genres = prefs.getStringList(GENRES_CAMP);
+    final favorites = prefs.getStringList(FAVORITES_CAMP);
+    return User(genres, favorites);
   }
 
 }

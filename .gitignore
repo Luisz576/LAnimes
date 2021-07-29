@@ -1,14 +1,11 @@
-### LAnimes Api ###
-api/node_modules
-api/package-lock.json
-
-### LAnimes App ###
-lanimes/android
-lanimes/ios
-lanimes/web
-lanimes/pubspec.lock
-lanimes/lanimes.iml
-lanimes/build
-lanimes/.dart_tool
-lanimes/.idea
-lanimes/.packages
+*/node_modules
+*/package-lock.json
+*/android
+*/ios
+*/web
+*/pubspec.lock
+*/lanimes.iml
+*/build
+*/.dart_tool
+*/.idea
+*/.packages

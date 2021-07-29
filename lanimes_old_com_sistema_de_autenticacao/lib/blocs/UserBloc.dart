@@ -13,7 +13,8 @@ class UserBloc extends BlocBase{
   void changeUser(User? user){
     _user = null;
     if(user != null)
-      _user = user;
+      if(!user.isEmpty())
+        _user = user;
     _userController.sink.add(_user);
   }
 
